@@ -71,8 +71,6 @@ const ActivityDetail = () => {
             else {
                 alert("Call Unarchived successfully")
             }
-
-            // Optionally, you can fetch the updated data or update the state directly
             const updatedData = await response.json();
         } catch (error) {
             console.error('Error archiving call:', error);
