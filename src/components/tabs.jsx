@@ -1,13 +1,18 @@
+// import react hooks
 import React, { useState } from 'react';
 import ActivityFeed from './ActivityFeed.jsx';
 import Archive from './Archive.jsx';
+
+// create react class
 const PhoneTabs = () => {
     const [activeTab, setActiveTab] = useState('home');
 
+    // handle table switching
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
 
+    // display tabs
     return (
         <div className="">
             <div className="row">

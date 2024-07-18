@@ -1,6 +1,8 @@
+// import react hooks
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
+// create react class
 const ActivityDetail = () => {
     const { callid } = useParams();
     const navigate = useNavigate();
@@ -12,6 +14,7 @@ const ActivityDetail = () => {
     const handlegoback = () => {
         navigate(-1);
     }
+    // fetch  call data from api
     useEffect(() => {
         const fetchCall = async () => {
             try {
@@ -32,6 +35,7 @@ const ActivityDetail = () => {
     if (!call) {
         return <div>Loading...</div>;
     }
+    // update call details by archiving call
     const handleArchiving = async (callId) => {
         try {
             const response = await fetch(`${apiBaseUrl}/activities/${callId}`, {
@@ -49,12 +53,12 @@ const ActivityDetail = () => {
                 alert("Call Archived successfully")
             }
 
-            // Optionally, you can fetch the updated data or update the state directly
             const updatedData = await response.json();
         } catch (error) {
             console.error('Error archiving call:', error);
         }
     };
+    // update call details by unarchiving call
     const handleUnArchiving = async (callId) => {
         try {
             const response = await fetch(`${apiBaseUrl}/activities/${callId}`, {
@@ -76,7 +80,7 @@ const ActivityDetail = () => {
             console.error('Error archiving call:', error);
         }
     };
-
+    // Display call details
     return (
         <div className="">
             <div className="justify-content-center">

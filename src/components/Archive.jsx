@@ -1,6 +1,8 @@
+// import react hooks
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// Create react class
 const Archive = () => {
     const navigate = useNavigate();
     const dateoptions = {
@@ -16,6 +18,7 @@ const Archive = () => {
     const apiBaseUrl = "https://aircall-backend.onrender.com";
     const [activities, setActivities] = useState([]);
 
+    // fetch archived calls
     const fetchArchivedCalls = async () => {
         try {
             const response = await fetch(`${apiBaseUrl}/activities`);
@@ -37,6 +40,8 @@ const Archive = () => {
         navigate(`/activitydetails/${callId}`);
     }
     const archivedCalls = activities.filter(call => call.is_archived);
+
+    // Display archived calls
     return (
         <div>
             <div className="row">

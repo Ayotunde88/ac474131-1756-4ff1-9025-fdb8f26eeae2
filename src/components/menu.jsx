@@ -1,9 +1,12 @@
+// import react hooks
 import React, { useState, useEffect } from 'react';
 
+// Create react class
 const PhoneMenu = () => {
     const apiBaseUrl = "https://aircall-backend.onrender.com";
     const [activities, setActivities] = useState([]);
 
+    // fetch calls from api
     const fetchCalls = async () => {
         try {
             const response = await fetch(`${apiBaseUrl}/activities`);
@@ -22,6 +25,7 @@ const PhoneMenu = () => {
         fetchCalls();
     }, []);
 
+    // Display Call data alonside UI
     return (
         <div className=''>
             <div className='phone-menu'>
